@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SSAG Marketplace – Strategic Systems Advisory Group</title>
   <meta name="description"
-        content="Strategic Systems Advisory Group (SSAG) – private marketplace for fully engineered turnkey businesses like the PressurePro Pressure Washing System." />
+        content="SSAG – Strategic Systems Advisory Group. Private marketplace for engineered TurnKey businesses like the PressurePro Pressure Washing System." />
   <style>
     :root {
-      --bg: #030712;
-      --bg-alt: #0b1220;
-      --card: #0f172a;
+      --bg: #020617;
+      --bg-alt: #020617;
+      --card: #020617;
       --accent: #2563eb;
       --accent-soft: #1d4ed8;
       --accent-strong: #38bdf8;
@@ -38,15 +38,29 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 18px 16px 48px;
+      padding: 16px 16px 48px;
     }
 
-    header {
+    /* ───── NAVBAR ───── */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15,23,42,.94), rgba(15,23,42,.75));
+      border-bottom: 1px solid rgba(51,65,85,.7);
+      margin: -16px -16px 16px;
+      padding: 10px 16px 8px;
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .brand {
@@ -56,12 +70,12 @@
     }
 
     .shield {
-      width: 40px;
-      height: 48px;
+      width: 38px;
+      height: 46px;
       border-radius: 14px;
       background: linear-gradient(135deg, #b91c1c, #7f1d1d);
       position: relative;
-      box-shadow: 0 0 0 2px #111827;
+      box-shadow: 0 0 0 2px #020617;
     }
     .shield::before {
       content: "";
@@ -74,7 +88,7 @@
     .shield::after {
       content: "";
       position: absolute;
-      inset: 11px 12px 10px;
+      inset: 11px 11px 9px;
       border-radius: 8px;
       background: radial-gradient(circle at top, #f97373, #7f1d1d);
       clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0 100%, 0 22%);
@@ -87,10 +101,30 @@
     }
 
     .brand-sub {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: .25em;
+      letter-spacing: .16em;
       color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(37,99,235,.2);
+      color: var(--text);
     }
 
     .tag-pill {
@@ -103,6 +137,7 @@
       align-items: center;
       gap: 6px;
       color: var(--muted);
+      white-space: nowrap;
     }
     .tag-pill span {
       width: 8px; height: 8px;
@@ -111,18 +146,23 @@
       box-shadow: 0 0 0 4px rgba(34,197,94,.18);
     }
 
+    /* ───── LAYOUT BLOCKS ───── */
+
+    section { scroll-margin-top: 70px; }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 18px;
-      margin-bottom: 28px;
+      margin-top: 16px;
+      margin-bottom: 26px;
     }
 
     .hero-main {
-      background: linear-gradient(135deg, #020617, #0b1120);
-      padding: 22px 20px 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(148,163,211,.45);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      padding: 20px 18px 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(148,163,211,.4);
       box-shadow: var(--shadow);
     }
 
@@ -160,10 +200,10 @@
     .metric {
       flex: 1;
       min-width: 130px;
-      background: radial-gradient(circle at top left, #111827, #020617);
-      border-radius: 14px;
-      border: 1px solid rgba(55,65,81,.8);
-      padding: 10px 11px;
+      background: radial-gradient(circle at top, #020617, #020617);
+      border-radius: 16px;
+      border: 1px solid rgba(55,65,81,1);
+      padding: 9px 10px 8px;
     }
 
     .metric-label {
@@ -171,7 +211,7 @@
       text-transform: uppercase;
       letter-spacing: .18em;
       color: var(--muted);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .metric-value {
@@ -188,6 +228,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 6px;
     }
 
     .btn-primary,
@@ -225,9 +266,9 @@
 
     .side-card {
       background: linear-gradient(145deg, #020617, #020617);
-      border-radius: var(--radius);
+      border-radius: 20px;
       border: 1px solid rgba(55,65,81,.9);
-      padding: 14px 13px 12px;
+      padding: 13px 13px 11px;
       font-size: 12px;
       color: var(--muted);
       box-shadow: 0 14px 30px rgba(0,0,0,.6);
@@ -252,13 +293,11 @@
       list-style: none;
       margin-top: 4px;
     }
-
     .steps li {
       display: flex;
       gap: 6px;
       margin-bottom: 5px;
     }
-
     .step-number {
       width: 16px;
       height: 16px;
@@ -271,9 +310,28 @@
       color: var(--accent-strong);
       font-weight: 600;
     }
-
     .step-text {
       font-size: 11px;
+    }
+
+    .social-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      margin-top: -2px;
+    }
+    .dot-row {
+      display: inline-flex;
+      gap: 4px;
+    }
+    .dot-row span {
+      width: 4px; height: 4px;
+      border-radius: 999px;
+      background: rgba(148,163,211,.9);
     }
 
     .section-title {
@@ -281,19 +339,19 @@
       text-transform: uppercase;
       letter-spacing: .22em;
       color: var(--muted);
-      margin: 20px 3px 10px;
+      margin: 22px 3px 10px;
     }
 
-    .grid {
+    .grid-2 {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 18px;
     }
 
     .card {
-      background: var(--card);
+      background: radial-gradient(circle at top left, #020617, #020617);
       padding: 16px 15px 14px;
-      border-radius: var(--radius);
+      border-radius: 22px;
       border: 1px solid rgba(75,85,99,.9);
       box-shadow: var(--shadow);
       font-size: 13px;
@@ -305,7 +363,7 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .card-label {
@@ -338,7 +396,7 @@
     }
 
     .card-body {
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .feature-list {
@@ -346,7 +404,7 @@
       columns: 2;
       column-gap: 18px;
       font-size: 11px;
-      margin: 6px 0 10px;
+      margin: 4px 0 8px;
     }
 
     .feature-list li {
@@ -379,29 +437,67 @@
       color: var(--success);
     }
 
+    /* Catalog cards */
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+
     .catalog-card {
       background: rgba(15,23,42,.96);
-      border-radius: var(--radius);
+      border-radius: 18px;
       border: 1px solid rgba(55,65,81,.9);
-      padding: 12px 13px 11px;
+      padding: 12px 12px 10px;
       font-size: 11px;
       color: var(--muted);
     }
 
     .catalog-card h3 {
       font-size: 13px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: var(--text);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .status-available {
+      background: rgba(34,197,94,.16);
+      border: 1px solid rgba(34,197,94,.9);
+      color: var(--success);
+    }
+
+    .status-soon {
+      background: rgba(37,99,235,.16);
+      border: 1px solid rgba(37,99,235,.8);
+      color: var(--accent-strong);
+    }
+
+    .status-dev {
+      background: rgba(248,250,252,.06);
+      border: 1px solid rgba(148,163,211,.8);
+      color: var(--muted);
     }
 
     .catalog-card ul {
       list-style: none;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .catalog-card li {
       margin-bottom: 4px;
-      padding-left: 12px;
+      padding-left: 11px;
       position: relative;
     }
 
@@ -410,11 +506,69 @@
       position: absolute;
       left: 0;
       color: var(--accent-strong);
+      font-size: 9px;
+    }
+
+    /* Operator pathway */
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .path-step {
+      background: rgba(15,23,42,.96);
+      border-radius: 16px;
+      border: 1px solid rgba(55,65,81,.9);
+      padding: 10px 10px 9px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .path-num {
+      width: 18px; height: 18px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 10px;
+      font-weight: 600;
+      color: var(--accent-strong);
+      margin-bottom: 4px;
+    }
+
+    .path-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    /* Contact */
+
+    .contact-card {
+      background: radial-gradient(circle at top, #020617, #020617);
+      border-radius: 22px;
+      border: 1px solid rgba(55,65,81,.9);
+      padding: 15px 15px 13px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
     }
 
     footer {
-      margin-top: 26px;
+      margin-top: 24px;
       padding-top: 10px;
       border-top: 1px solid rgba(55,65,81,.9);
       font-size: 11px;
@@ -432,17 +586,23 @@
       text-decoration-thickness: 1px;
     }
 
-    @media (max-width: 800px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width: 900px) {
       .hero,
-      .grid {
+      .grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
-      .feature-list {
-        columns: 1;
+      .catalog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .path-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
       .hero-actions {
         flex-direction: column;
@@ -453,12 +613,18 @@
         justify-content: center;
         width: 100%;
       }
+      .catalog-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .path-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
+  <div class="nav">
+    <div class="nav-inner">
       <div class="brand">
         <div class="shield"></div>
         <div>
@@ -466,13 +632,23 @@
           <div class="brand-sub">Strategic Systems Advisory Group</div>
         </div>
       </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#operators">Operators</a>
+        <a href="#investors">Invest</a>
+        <a href="#contact">Contact</a>
+      </div>
       <div class="tag-pill">
         <span></span>
         Private TurnKey Business Marketplace
       </div>
-    </header>
+    </div>
+  </div>
 
-    <section class="hero">
+  <div class="page">
+    <!-- HERO -->
+    <section id="home" class="hero">
       <div class="hero-main">
         <div class="hero-kicker">Private Deal Room</div>
         <h1>
@@ -480,20 +656,28 @@
           engineered to start earning in days, not months.
         </h1>
         <p class="hero-sub">
-          SSAG designs, documents and delivers fully built TurnKey business systems.
-          Each package includes brand, pricing, operations, marketing, scripts and launch guidance.
+          SSAG designs and documents fully built TurnKey systems. Each package includes brand, pricing,
+          operations, marketing, scripts and launch guidance so an operator can plug in and go.
         </p>
+
+        <div class="social-strip">
+          <div><strong>Built for operators, not dabblers.</strong></div>
+          <div class="dot-row">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div>Local services · Digital offers · Franchise-style systems.</div>
+        </div>
 
         <div class="hero-metrics">
           <div class="metric">
             <div class="metric-label">Current Flagship</div>
             <div class="metric-value">PressurePro System</div>
-            <div class="metric-note">Local pressure washing business engineered for fast cashflow.</div>
+            <div class="metric-note">Local pressure washing business built for fast cashflow.</div>
           </div>
           <div class="metric">
             <div class="metric-label">Launch Window</div>
             <div class="metric-value">3 – 7 Days</div>
-            <div class="metric-note">Typical time from purchase to taking first bookings.</div>
+            <div class="metric-note">Typical time from purchase to first booked jobs (with effort).</div>
           </div>
         </div>
 
@@ -503,8 +687,8 @@
             Request PressurePro Deal Sheet
           </a>
           <a class="btn-ghost"
-             href="mailto:ssagacquisitions@gmail.com?subject=SSAG%20TurnKey%20Catalog&body=Please%20send%20me%20the%20current%20SSAG%20TurnKey%20business%20catalog.">
-            Request Full SSAG Catalog
+             href="#catalog">
+            View TurnKey Catalog
           </a>
         </div>
       </div>
@@ -514,9 +698,9 @@
           <div class="side-tag">Structure</div>
           <div class="side-title">How SSAG acquisitions work</div>
           <p>
-            Each business is engineered under SSAG standards, then licensed or fully transferred
-            to a single operator. You receive all digital assets, documentation and launch support needed
-            to begin operating immediately in your own market.
+            SSAG builds and owns master systems. You license or acquire a TurnKey package for your region,
+            receive all digital assets and documentation, and operate the business under your own entity
+            while following SSAG standards.
           </p>
         </div>
         <div class="side-card">
@@ -528,24 +712,25 @@
             </li>
             <li>
               <div class="step-number">2</div>
-              <div class="step-text">Select your package tier (Operator / Franchise / Empire).</div>
+              <div class="step-text">Select package tier – Operator, Franchise or Empire.</div>
             </li>
             <li>
               <div class="step-number">3</div>
-              <div class="step-text">Execute agreement & secure invoice.</div>
+              <div class="step-text">Execute agreement & secure payment via invoice or escrow.</div>
             </li>
             <li>
               <div class="step-number">4</div>
-              <div class="step-text">Receive your TurnKey bundle & onboarding guidance.</div>
+              <div class="step-text">Receive TurnKey bundle, certificates & launch guidance.</div>
             </li>
           </ul>
         </div>
       </aside>
     </section>
 
+    <!-- FEATURED PRESSUREPRO -->
     <h2 class="section-title">Featured TurnKey System</h2>
 
-    <section class="grid">
+    <section class="grid-2">
       <article class="card">
         <div class="card-header">
           <div>
@@ -561,12 +746,13 @@
         <div class="card-body">
           A complete SSAG-engineered pressure washing business. Built as a true service agency brand
           with documented systems, pricing, scripts, ad templates and launch guidance.
-          No prior experience required – designed to run from a laptop plus a single equipment set.
+          No prior experience required – designed to run from a laptop plus a single equipment set in
+          any mid-size market.
         </div>
 
         <ul class="feature-list">
           <li>Brand name, logo & visual identity system</li>
-          <li>Conversion-ready website / landing copy</li>
+          <li>Conversion-focused website / landing copy</li>
           <li>Residential & commercial pricing matrices</li>
           <li>Phone, SMS & DM sales scripts</li>
           <li>Ad templates for FB, IG, Craigslist & local groups</li>
@@ -584,34 +770,13 @@
         </div>
       </article>
 
-      <aside class="catalog-card">
-        <h3>Upcoming SSAG Systems</h3>
-        <p>These builds are in the pipeline and will be listed here as they complete:</p>
-        <ul>
-          <li>ShinePro – Window & Glass Detailing System</li>
-          <li>MoveGuard – Move-In / Move-Out Cleaning System</li>
-          <li>DriveLine – Mobile Fleet Wash & Detail</li>
-          <li>Digital Operator – Remote service-based online offers</li>
-        </ul>
-        <p style="margin-top:8px;">
-          To reserve early access or request a custom build, email
-          <a href="mailto:ssagacquisitions@gmail.com?subject=Custom%20TurnKey%20Build">
-            ssagacquisitions@gmail.com
-          </a>
-          with subject line <strong>"Custom TurnKey Build".</strong>
-        </p>
-      </aside>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> Strategic Systems Advisory Group (SSAG). All rights reserved.</div>
-      <div>Deal inquiries: <a href="mailto:ssagacquisitions@gmail.com">ssagacquisitions@gmail.com</a></div>
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-        </html>
-        
+      <aside class="card" id="operators">
+        <div class="card-label">Operator Pathway</div>
+        <div class="card-title">What an SSAG operator actually gets</div>
+        <div class="card-body">
+          Operators aren’t buying “an idea” – they’re acquiring a complete decision-stack:
+        </div>
+        <ul class="feature-list" style="columns:1;">
+          <li>Positioning: how the offer is framed in your market.</li>
+          <li>Pricing: pre-tested structures and packages.</li>
+          <li>Proc
