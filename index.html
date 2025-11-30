@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SSAG Marketplace – Strategic Systems Advisory Group</title>
+  <meta name="description"
+        content="Strategic Systems Advisory Group (SSAG) – private marketplace for fully engineered turnkey businesses like the PressurePro Pressure Washing System." />
+  <style>
+    :root {
+      --bg: #030712;
+      --bg-alt: #0b1220;
+      --card: #0f172a;
+      --accent: #2563eb;
+      --accent-soft: #1d4ed8;
+      --accent-strong: #38bdf8;
+      --text: #f9fafb;
+      --muted: #cbd5f5;
+      --border: #1f2937;
+      --success: #22c55e;
+      --danger: #f97373;
+      --radius: 18px;
+      --shadow: 0 20px 45px rgba(0,0,0,.55);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937, #020617);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .shield {
+      width: 40px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+      position: relative;
+      box-shadow: 0 0 0 2px #111827;
+    }
+    .shield::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 10px;
+      border: 2px solid rgba(15,23,42,.9);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.6);
+    }
+    .shield::after {
+      content: "";
+      position: absolute;
+      inset: 11px 12px 10px;
+      border-radius: 8px;
+      background: radial-gradient(circle at top, #f97373, #7f1d1d);
+      clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0 100%, 0 22%);
+    }
+
+    .brand-main {
+      font-weight: 700;
+      letter-spacing: .18em;
+      font-size: 14px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      color: var(--muted);
+    }
+
+    .tag-pill {
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      border: 1px solid rgba(37,99,235,.6);
+      background: rgba(15,23,42,.95);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+    }
+    .tag-pill span {
+      width: 8px; height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.18);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .hero-main {
+      background: linear-gradient(135deg, #020617, #0b1120);
+      padding: 22px 20px 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,211,.45);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .hero-highlight {
+      color: var(--accent-strong);
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .metric {
+      flex: 1;
+      min-width: 130px;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 14px;
+      border: 1px solid rgba(55,65,81,.8);
+      padding: 10px 11px;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .metric-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .metric-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #f9fafb;
+      font-weight: 600;
+      box-shadow: 0 16px 40px rgba(37,99,235,.55);
+    }
+
+    .btn-ghost {
+      background: rgba(15,23,42,.92);
+      color: var(--muted);
+      border: 1px solid rgba(148,163,211,.6);
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .side-card {
+      background: linear-gradient(145deg, #020617, #020617);
+      border-radius: var(--radius);
+      border: 1px solid rgba(55,65,81,.9);
+      padding: 14px 13px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      box-shadow: 0 14px 30px rgba(0,0,0,.6);
+    }
+
+    .side-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .side-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .steps {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+
+    .step-number {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(37,99,235,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--accent-strong);
+      font-weight: 600;
+    }
+
+    .step-text {
+      font-size: 11px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--muted);
+      margin: 20px 3px 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 16px 15px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(75,85,99,.9);
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .price {
+      text-align: right;
+      font-size: 12px;
+    }
+
+    .price-main {
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
+    .price-note {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .card-body {
+      margin-bottom: 10px;
+    }
+
+    .feature-list {
+      list-style: none;
+      columns: 2;
+      column-gap: 18px;
+      font-size: 11px;
+      margin: 6px 0 10px;
+    }
+
+    .feature-list li {
+      margin-bottom: 6px;
+      padding-left: 12px;
+      position: relative;
+      break-inside: avoid;
+    }
+
+    .feature-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-strong);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.14);
+      border: 1px solid rgba(34,197,94,.75);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--success);
+    }
+
+    .catalog-card {
+      background: rgba(15,23,42,.96);
+      border-radius: var(--radius);
+      border: 1px solid rgba(55,65,81,.9);
+      padding: 12px 13px 11px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .catalog-card h3 {
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .catalog-card ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .catalog-card li {
+      margin-bottom: 4px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .catalog-card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-strong);
+      font-size: 10px;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(55,65,81,.9);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    footer a {
+      color: var(--accent-strong);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero,
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .feature-list {
+        columns: 1;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-primary,
+      .btn-ghost {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="shield"></div>
+        <div>
+          <div class="brand-main">SSAG</div>
+          <div class="brand-sub">Strategic Systems Advisory Group</div>
+        </div>
+      </div>
+      <div class="tag-pill">
+        <span></span>
+        Private TurnKey Business Marketplace
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-kicker">Private Deal Room</div>
+        <h1>
+          Acquire a <span class="hero-highlight">ready-to-launch business</span>
+          engineered to start earning in days, not months.
+        </h1>
+        <p class="hero-sub">
+          SSAG designs, documents and delivers fully built TurnKey business systems.
+          Each package includes brand, pricing, operations, marketing, scripts and launch guidance.
+        </p>
+
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-label">Current Flagship</div>
+            <div class="metric-value">PressurePro System</div>
+            <div class="metric-note">Local pressure washing business engineered for fast cashflow.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Launch Window</div>
+            <div class="metric-value">3 – 7 Days</div>
+            <div class="metric-note">Typical time from purchase to taking first bookings.</div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-primary"
+             href="mailto:ssagacquisitions@gmail.com?subject=PressurePro%20TurnKey%20Business%20Inquiry&body=I%E2%80%99m%20interested%20in%20the%20PressurePro%20TurnKey%20Pressure%20Washing%20System.%20Please%20send%20me%20the%20full%20deal%20sheet%20and%20pricing%20options.">
+            Request PressurePro Deal Sheet
+          </a>
+          <a class="btn-ghost"
+             href="mailto:ssagacquisitions@gmail.com?subject=SSAG%20TurnKey%20Catalog&body=Please%20send%20me%20the%20current%20SSAG%20TurnKey%20business%20catalog.">
+            Request Full SSAG Catalog
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="side-card">
+          <div class="side-tag">Structure</div>
+          <div class="side-title">How SSAG acquisitions work</div>
+          <p>
+            Each business is engineered under SSAG standards, then licensed or fully transferred
+            to a single operator. You receive all digital assets, documentation and launch support needed
+            to begin operating immediately in your own market.
+          </p>
+        </div>
+        <div class="side-card">
+          <div class="side-title">Acquisition Steps</div>
+          <ul class="steps">
+            <li>
+              <div class="step-number">1</div>
+              <div class="step-text">Request the PressurePro deal sheet or full catalog.</div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div class="step-text">Select your package tier (Operator / Franchise / Empire).</div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div class="step-text">Execute agreement & secure invoice.</div>
+            </li>
+            <li>
+              <div class="step-number">4</div>
+              <div class="step-text">Receive your TurnKey bundle & onboarding guidance.</div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <h2 class="section-title">Featured TurnKey System</h2>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-label">Local Service • High Demand • Low Overhead</div>
+            <div class="card-title">PressurePro TurnKey Pressure Washing System</div>
+          </div>
+          <div class="price">
+            <div class="price-main">$997 Buy-Out</div>
+            <div class="price-note">Operator Package – flexible terms available</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          A complete SSAG-engineered pressure washing business. Built as a true service agency brand
+          with documented systems, pricing, scripts, ad templates and launch guidance.
+          No prior experience required – designed to run from a laptop plus a single equipment set.
+        </div>
+
+        <ul class="feature-list">
+          <li>Brand name, logo & visual identity system</li>
+          <li>Conversion-ready website / landing copy</li>
+          <li>Residential & commercial pricing matrices</li>
+          <li>Phone, SMS & DM sales scripts</li>
+          <li>Ad templates for FB, IG, Craigslist & local groups</li>
+          <li>Launch checklist & 7-day rollout plan</li>
+          <li>Equipment tiers & sourcing guide (budget → pro)</li>
+          <li>Operator License certificate & documentation</li>
+        </ul>
+
+        <div class="hero-actions" style="margin-top:4px;">
+          <span class="badge">Now accepting operators</span>
+          <a class="btn-ghost"
+             href="mailto:ssagacquisitions@gmail.com?subject=PressurePro%20Asset%20List&body=Please%20send%20me%20the%20detailed%20asset%20list%20and%20what%E2%80%99s%20included%20with%20the%20PressurePro%20TurnKey%20system.">
+            Request Detailed Asset List
+          </a>
+        </div>
+      </article>
+
+      <aside class="catalog-card">
+        <h3>Upcoming SSAG Systems</h3>
+        <p>These builds are in the pipeline and will be listed here as they complete:</p>
+        <ul>
+          <li>ShinePro – Window & Glass Detailing System</li>
+          <li>MoveGuard – Move-In / Move-Out Cleaning System</li>
+          <li>DriveLine – Mobile Fleet Wash & Detail</li>
+          <li>Digital Operator – Remote service-based online offers</li>
+        </ul>
+        <p style="margin-top:8px;">
+          To reserve early access or request a custom build, email
+          <a href="mailto:ssagacquisitions@gmail.com?subject=Custom%20TurnKey%20Build">
+            ssagacquisitions@gmail.com
+          </a>
+          with subject line <strong>"Custom TurnKey Build".</strong>
+        </p>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Strategic Systems Advisory Group (SSAG). All rights reserved.</div>
+      <div>Deal inquiries: <a href="mailto:ssagacquisitions@gmail.com">ssagacquisitions@gmail.com</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+        </html>
+        
