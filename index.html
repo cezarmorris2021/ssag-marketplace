@@ -2,781 +2,327 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SSAG Marketplace – Strategic Systems Advisory Group</title>
-  <meta name="description"
-        content="SSAG – Strategic Systems Advisory Group. Private marketplace for engineered TurnKey businesses like the PressurePro Pressure Washing System." />
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-alt: #020617;
-      --card: #020617;
-      --accent: #2563eb;
-      --accent-soft: #1d4ed8;
-      --accent-strong: #38bdf8;
-      --text: #f9fafb;
-      --muted: #cbd5f5;
-      --border: #1f2937;
-      --success: #22c55e;
-      --danger: #f97373;
-      --radius: 18px;
-      --shadow: 0 20px 45px rgba(0,0,0,.55);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #020617);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 16px 16px 48px;
-    }
-
-    /* ───── NAVBAR ───── */
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(15,23,42,.94), rgba(15,23,42,.75));
-      border-bottom: 1px solid rgba(51,65,85,.7);
-      margin: -16px -16px 16px;
-      padding: 10px 16px 8px;
-    }
-
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .shield {
-      width: 38px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #b91c1c, #7f1d1d);
-      position: relative;
-      box-shadow: 0 0 0 2px #020617;
-    }
-    .shield::before {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border-radius: 10px;
-      border: 2px solid rgba(15,23,42,.9);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.6);
-    }
-    .shield::after {
-      content: "";
-      position: absolute;
-      inset: 11px 11px 9px;
-      border-radius: 8px;
-      background: radial-gradient(circle at top, #f97373, #7f1d1d);
-      clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0 100%, 0 22%);
-    }
-
-    .brand-main {
-      font-weight: 700;
-      letter-spacing: .18em;
-      font-size: 14px;
-    }
-
-    .brand-sub {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .24em;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      padding: 4px 8px;
-      border-radius: 999px;
-    }
-
-    .nav-links a:hover {
-      background: rgba(37,99,235,.2);
-      color: var(--text);
-    }
-
-    .tag-pill {
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 11px;
-      border: 1px solid rgba(37,99,235,.6);
-      background: rgba(15,23,42,.95);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .tag-pill span {
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: var(--success);
-      box-shadow: 0 0 0 4px rgba(34,197,94,.18);
-    }
-
-    /* ───── LAYOUT BLOCKS ───── */
-
-    section { scroll-margin-top: 70px; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 16px;
-      margin-bottom: 26px;
-    }
-
-    .hero-main {
-      background: radial-gradient(circle at top left, #020617, #020617);
-      padding: 20px 18px 16px;
-      border-radius: 22px;
-      border: 1px solid rgba(148,163,211,.4);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .24em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: 24px;
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .hero-highlight {
-      color: var(--accent-strong);
-    }
-
-    .hero-sub {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .hero-metrics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .metric {
-      flex: 1;
-      min-width: 130px;
-      background: radial-gradient(circle at top, #020617, #020617);
-      border-radius: 16px;
-      border: 1px solid rgba(55,65,81,1);
-      padding: 9px 10px 8px;
-    }
-
-    .metric-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-
-    .metric-value {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .metric-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      border-radius: 999px;
-      padding: 9px 15px;
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #f9fafb;
-      font-weight: 600;
-      box-shadow: 0 16px 40px rgba(37,99,235,.55);
-    }
-
-    .btn-ghost {
-      background: rgba(15,23,42,.92);
-      color: var(--muted);
-      border: 1px solid rgba(148,163,211,.6);
-    }
-
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .side-card {
-      background: linear-gradient(145deg, #020617, #020617);
-      border-radius: 20px;
-      border: 1px solid rgba(55,65,81,.9);
-      padding: 13px 13px 11px;
-      font-size: 12px;
-      color: var(--muted);
-      box-shadow: 0 14px 30px rgba(0,0,0,.6);
-    }
-
-    .side-title {
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .side-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .steps {
-      list-style: none;
-      margin-top: 4px;
-    }
-    .steps li {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 5px;
-    }
-    .step-number {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      background: rgba(37,99,235,.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      color: var(--accent-strong);
-      font-weight: 600;
-    }
-    .step-text {
-      font-size: 11px;
-    }
-
-    .social-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      margin-top: -2px;
-    }
-    .dot-row {
-      display: inline-flex;
-      gap: 4px;
-    }
-    .dot-row span {
-      width: 4px; height: 4px;
-      border-radius: 999px;
-      background: rgba(148,163,211,.9);
-    }
-
-    .section-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      color: var(--muted);
-      margin: 22px 3px 10px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #020617, #020617);
-      padding: 16px 15px 14px;
-      border-radius: 22px;
-      border: 1px solid rgba(75,85,99,.9);
-      box-shadow: var(--shadow);
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 7px;
-    }
-
-    .card-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--muted);
-    }
-
-    .card-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text);
-      margin-top: 2px;
-    }
-
-    .price {
-      text-align: right;
-      font-size: 12px;
-    }
-
-    .price-main {
-      color: var(--accent-strong);
-      font-weight: 700;
-    }
-
-    .price-note {
-      font-size: 10px;
-      color: var(--muted);
-    }
-
-    .card-body {
-      margin-bottom: 9px;
-    }
-
-    .feature-list {
-      list-style: none;
-      columns: 2;
-      column-gap: 18px;
-      font-size: 11px;
-      margin: 4px 0 8px;
-    }
-
-    .feature-list li {
-      margin-bottom: 6px;
-      padding-left: 12px;
-      position: relative;
-      break-inside: avoid;
-    }
-
-    .feature-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent-strong);
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(34,197,94,.14);
-      border: 1px solid rgba(34,197,94,.75);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: var(--success);
-    }
-
-    /* Catalog cards */
-
-    .catalog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 8px;
-    }
-
-    .catalog-card {
-      background: rgba(15,23,42,.96);
-      border-radius: 18px;
-      border: 1px solid rgba(55,65,81,.9);
-      padding: 12px 12px 10px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .catalog-card h3 {
-      font-size: 13px;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-    }
-
-    .status-available {
-      background: rgba(34,197,94,.16);
-      border: 1px solid rgba(34,197,94,.9);
-      color: var(--success);
-    }
-
-    .status-soon {
-      background: rgba(37,99,235,.16);
-      border: 1px solid rgba(37,99,235,.8);
-      color: var(--accent-strong);
-    }
-
-    .status-dev {
-      background: rgba(248,250,252,.06);
-      border: 1px solid rgba(148,163,211,.8);
-      color: var(--muted);
-    }
-
-    .catalog-card ul {
-      list-style: none;
-      margin-top: 6px;
-    }
-
-    .catalog-card li {
-      margin-bottom: 4px;
-      padding-left: 11px;
-      position: relative;
-    }
-
-    .catalog-card li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: var(--accent-strong);
-      font-size: 9px;
-    }
-
-    /* Operator pathway */
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .path-step {
-      background: rgba(15,23,42,.96);
-      border-radius: 16px;
-      border: 1px solid rgba(55,65,81,.9);
-      padding: 10px 10px 9px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .path-num {
-      width: 18px; height: 18px;
-      border-radius: 999px;
-      background: rgba(37,99,235,.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--accent-strong);
-      margin-bottom: 4px;
-    }
-
-    .path-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    /* Contact */
-
-    .contact-card {
-      background: radial-gradient(circle at top, #020617, #020617);
-      border-radius: 22px;
-      border: 1px solid rgba(55,65,81,.9);
-      padding: 15px 15px 13px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 24px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(55,65,81,.9);
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    footer a {
-      color: var(--accent-strong);
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-decoration-thickness: 1px;
-    }
-
-    @media (max-width: 900px) {
-      .hero,
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .catalog-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .path-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-primary,
-      .btn-ghost {
-        justify-content: center;
-        width: 100%;
-      }
-      .catalog-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .path-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSAG Global Enterprises – Turnkey Business Systems</title>
+  <meta name="description" content="SSAG Global Enterprises builds complete, plug-and-play business systems anyone can launch in 30 days. Build smart. Start strong." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="shield"></div>
-        <div>
-          <div class="brand-main">SSAG</div>
-          <div class="brand-sub">Strategic Systems Advisory Group</div>
-        </div>
+  <!-- Top Navigation -->
+  <header class="ssag-header">
+    <div class="ssag-container ssag-header-inner">
+      <div class="ssag-logo">
+        <span class="ssag-logo-mark">SSAG</span>
+        <span class="ssag-logo-text">Global Enterprises</span>
       </div>
-      <div class="nav-links">
+
+      <nav class="ssag-nav">
         <a href="#home">Home</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#operators">Operators</a>
-        <a href="#investors">Invest</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#partner">Partner Program</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
-      </div>
-      <div class="tag-pill">
-        <span></span>
-        Private TurnKey Business Marketplace
-      </div>
+      </nav>
+
+      <a href="#marketplace" class="ssag-btn ssag-btn-small">Start Your Business</a>
     </div>
-  </div>
+  </header>
 
-  <div class="page">
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="hero-main">
-        <div class="hero-kicker">Private Deal Room</div>
-        <h1>
-          Acquire a <span class="hero-highlight">ready-to-launch business</span>
-          engineered to start earning in days, not months.
-        </h1>
-        <p class="hero-sub">
-          SSAG designs and documents fully built TurnKey systems. Each package includes brand, pricing,
-          operations, marketing, scripts and launch guidance so an operator can plug in and go.
+  <!-- Hero Section -->
+  <section id="home" class="ssag-hero">
+    <div class="ssag-container ssag-hero-inner">
+      <div class="ssag-hero-content">
+        <h1>Build Smart. Start Strong.</h1>
+        <p class="ssag-hero-subtitle">
+          SSAG Global Enterprises creates complete, plug-and-play business systems
+          so real people can launch real businesses in 30 days or less.
         </p>
-
-        <div class="social-strip">
-          <div><strong>Built for operators, not dabblers.</strong></div>
-          <div class="dot-row">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <div>Local services · Digital offers · Franchise-style systems.</div>
+        <div class="ssag-hero-actions">
+          <a href="#marketplace" class="ssag-btn">Browse Business Kits</a>
+          <a href="#partner" class="ssag-btn ssag-btn-outline">Work With SSAG</a>
         </div>
-
-        <div class="hero-metrics">
-          <div class="metric">
-            <div class="metric-label">Current Flagship</div>
-            <div class="metric-value">PressurePro System</div>
-            <div class="metric-note">Local pressure washing business built for fast cashflow.</div>
-          </div>
-          <div class="metric">
-            <div class="metric-label">Launch Window</div>
-            <div class="metric-value">3 – 7 Days</div>
-            <div class="metric-note">Typical time from purchase to first booked jobs (with effort).</div>
-          </div>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn-primary"
-             href="mailto:ssagacquisitions@gmail.com?subject=PressurePro%20TurnKey%20Business%20Inquiry&body=I%E2%80%99m%20interested%20in%20the%20PressurePro%20TurnKey%20Pressure%20Washing%20System.%20Please%20send%20me%20the%20full%20deal%20sheet%20and%20pricing%20options.">
-            Request PressurePro Deal Sheet
-          </a>
-          <a class="btn-ghost"
-             href="#catalog">
-            View TurnKey Catalog
-          </a>
-        </div>
+        <p class="ssag-hero-note">
+          No fluff. No covert ops. Just clear blueprints for Airbnb co-hosting, cleaning,
+          notary, local services, digital products, YouTube automation, and more.
+        </p>
       </div>
 
-      <aside class="hero-side">
-        <div class="side-card">
-          <div class="side-tag">Structure</div>
-          <div class="side-title">How SSAG acquisitions work</div>
+      <div class="ssag-hero-panel">
+        <div class="ssag-hero-card">
+          <h2>What Is SSAG?</h2>
           <p>
-            SSAG builds and owns master systems. You license or acquire a TurnKey package for your region,
-            receive all digital assets and documentation, and operate the business under your own entity
-            while following SSAG standards.
+            SSAG is your business-in-a-box platform. We build the systems, templates,
+            contracts, and launch plans so you don’t have to figure it out alone.
           </p>
-        </div>
-        <div class="side-card">
-          <div class="side-title">Acquisition Steps</div>
-          <ul class="steps">
-            <li>
-              <div class="step-number">1</div>
-              <div class="step-text">Request the PressurePro deal sheet or full catalog.</div>
-            </li>
-            <li>
-              <div class="step-number">2</div>
-              <div class="step-text">Select package tier – Operator, Franchise or Empire.</div>
-            </li>
-            <li>
-              <div class="step-number">3</div>
-              <div class="step-text">Execute agreement & secure payment via invoice or escrow.</div>
-            </li>
-            <li>
-              <div class="step-number">4</div>
-              <div class="step-text">Receive TurnKey bundle, certificates & launch guidance.</div>
-            </li>
+          <ul class="ssag-list">
+            <li>✅ Turnkey business kits</li>
+            <li>✅ Done-for-you build options</li>
+            <li>✅ Partner program with ongoing support</li>
           </ul>
         </div>
-      </aside>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FEATURED PRESSUREPRO -->
-    <h2 class="section-title">Featured TurnKey System</h2>
+  <!-- Marketplace Preview -->
+  <section id="marketplace" class="ssag-section ssag-section-light">
+    <div class="ssag-container">
+      <header class="ssag-section-header">
+        <h2>SSAG Business Kit Marketplace</h2>
+        <p>
+          Choose a complete business system, download instantly, and follow the
+          step-by-step launch plan. No covert theme, no confusion—just clarity.
+        </p>
+      </header>
 
-    <section class="grid-2">
-      <article class="card">
-        <div class="card-header">
-          <div>
-            <div class="card-label">Local Service • High Demand • Low Overhead</div>
-            <div class="card-title">PressurePro TurnKey Pressure Washing System</div>
+      <div class="ssag-market-grid">
+        <!-- Product: Airbnb Co-Host -->
+        <article class="ssag-card">
+          <h3>Airbnb Co-Host Business Kit</h3>
+          <p class="ssag-tag">Service Business • Zero Property Needed</p>
+          <p>
+            A complete co-hosting system including contracts, scripts, pricing,
+            checklists, guest messaging flows, and a 30-day launch plan.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ Earn 10–25% of bookings</li>
+            <li>✔ 30-day step-by-step roadmap</li>
+            <li>✔ Templates and SOPs included</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$197 (choose your tier)</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
           </div>
-          <div class="price">
-            <div class="price-main">$997 Buy-Out</div>
-            <div class="price-note">Operator Package – flexible terms available</div>
+        </article>
+
+        <!-- Product: Cleaning Business -->
+        <article class="ssag-card">
+          <h3>Cleaning Business Starter Kit</h3>
+          <p class="ssag-tag">Service Business • High Demand</p>
+          <p>
+            Launch a local cleaning business with ready-made pricing sheets, client
+            contracts, flyers, checklists, and onboarding systems.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ Residential & commercial templates</li>
+            <li>✔ Operations SOPs</li>
+            <li>✔ 30-day launch plan</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$197</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
           </div>
-        </div>
+        </article>
 
-        <div class="card-body">
-          A complete SSAG-engineered pressure washing business. Built as a true service agency brand
-          with documented systems, pricing, scripts, ad templates and launch guidance.
-          No prior experience required – designed to run from a laptop plus a single equipment set in
-          any mid-size market.
-        </div>
+        <!-- Product: Notary + Loan Signing -->
+        <article class="ssag-card">
+          <h3>Notary & Loan Signing Agent Kit</h3>
+          <p class="ssag-tag">Professional Service • Low Overhead</p>
+          <p>
+            A done-for-you system for building a notary and loan signing business:
+            scripts, contracts, compliance basics, and marketing plan.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ Step-by-step setup</li>
+            <li>✔ Title & realtor scripts</li>
+            <li>✔ Pricing & packaging</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$197</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
+          </div>
+        </article>
 
-        <ul class="feature-list">
-          <li>Brand name, logo & visual identity system</li>
-          <li>Conversion-focused website / landing copy</li>
-          <li>Residential & commercial pricing matrices</li>
-          <li>Phone, SMS & DM sales scripts</li>
-          <li>Ad templates for FB, IG, Craigslist & local groups</li>
-          <li>Launch checklist & 7-day rollout plan</li>
-          <li>Equipment tiers & sourcing guide (budget → pro)</li>
-          <li>Operator License certificate & documentation</li>
+        <!-- Product: Local Services Agency -->
+        <article class="ssag-card">
+          <h3>Local Services Agency Kit</h3>
+          <p class="ssag-tag">Multi-Service • High Earning Potential</p>
+          <p>
+            15+ service offers in one kit—hauling, yard cleanups, pressure washing,
+            handyman and more. Includes contracts, pricing, and marketing tools.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ 15 service menu breakdowns</li>
+            <li>✔ Local marketing systems</li>
+            <li>✔ Launch & scaling roadmap</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$297</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
+          </div>
+        </article>
+
+        <!-- Product: Digital Product Seller -->
+        <article class="ssag-card">
+          <h3>Digital Product Seller Kit</h3>
+          <p class="ssag-tag">Online Business • No Inventory</p>
+          <p>
+            Build a digital product brand with templates, planners, PDFs, and more.
+            Covers product ideas, store setup, marketing, and scaling.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ 40+ product ideas</li>
+            <li>✔ Store setup tutorials</li>
+            <li>✔ Launch & content plan</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$297</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
+          </div>
+        </article>
+
+        <!-- Product: YouTube Automation -->
+        <article class="ssag-card">
+          <h3>YouTube Automation Channel Kit</h3>
+          <p class="ssag-tag">Online Business • Faceless Content</p>
+          <p>
+            A faceless YouTube channel business system with niche lists, script
+            templates, thumbnail ideas, posting schedules, and monetization map.
+          </p>
+          <ul class="ssag-list">
+            <li>✔ 30+ niche ideas</li>
+            <li>✔ AI-driven content systems</li>
+            <li>✔ 30-day launch roadmap</li>
+          </ul>
+          <div class="ssag-card-footer">
+            <span class="ssag-price">$97–$297</span>
+            <a href="#contact" class="ssag-btn ssag-btn-small">Get Details</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="ssag-center mt-lg">
+        <p class="ssag-muted">
+          Want all current and future SSAG business kits in one package?
+        </p>
+        <a href="#contact" class="ssag-btn ssag-btn-accent">Ask About the SSAG Business Bundle</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Program -->
+  <section id="partner" class="ssag-section">
+    <div class="ssag-container ssag-partner-grid">
+      <div>
+        <h2>SSAG Partner Program</h2>
+        <p>
+          For builders who want more than a download. The SSAG Partner Program gives you
+          ongoing support, updates, and guidance while you build your business using our systems.
+        </p>
+        <ul class="ssag-list">
+          <li>✔ Monthly templates and updates</li>
+          <li>✔ Priority Q&amp;A and support</li>
+          <li>✔ Advanced playbooks and funnels</li>
+          <li>✔ Option to upgrade to Prime with revenue share</li>
         </ul>
+        <p class="ssag-muted">
+          Starter, Growth, and Prime tiers available so you can plug in at your own pace.
+        </p>
+        <a href="#contact" class="ssag-btn">Request Partner Details</a>
+      </div>
+      <div class="ssag-partner-card">
+        <h3>Done-For-You &amp; Prime</h3>
+        <p>
+          Want SSAG to help build your business for you? Our Done-For-You and Prime
+          Partnership options include custom setup, systems tuning, and scaling support.
+        </p>
+        <ul class="ssag-list">
+          <li>✔ QuickBuild – starting around $1,500</li>
+          <li>✔ FullBuild – deeper setup &amp; funnels</li>
+          <li>✔ EmpireBuild – full-scale system + revenue share</li>
+        </ul>
+        <p class="ssag-muted">
+          Serious about building fast? Reach out below and we’ll walk you through options.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-actions" style="margin-top:4px;">
-          <span class="badge">Now accepting operators</span>
-          <a class="btn-ghost"
-             href="mailto:ssagacquisitions@gmail.com?subject=PressurePro%20Asset%20List&body=Please%20send%20me%20the%20detailed%20asset%20list%20and%20what%E2%80%99s%20included%20with%20the%20PressurePro%20TurnKey%20system.">
-            Request Detailed Asset List
-          </a>
-        </div>
-      </article>
+  <!-- About Section -->
+  <section id="about" class="ssag-section ssag-section-light">
+    <div class="ssag-container ssag-about-grid">
+      <div>
+        <h2>About SSAG Global Enterprises</h2>
+        <p>
+          SSAG was created for people who never got a blueprint. Too many good people are
+          stuck, not because they’re lazy, but because nobody ever gave them a real plan.
+        </p>
+        <p>
+          Every SSAG system is built to be simple, clear, and complete. We focus on
+          real-world business models that can be started quickly, with low overhead, and
+          scaled over time.
+        </p>
+      </div>
+      <div class="ssag-about-card">
+        <h3>Founder: Cezar Morris</h3>
+        <p>
+          “I built SSAG because I was tired of seeing people like us get left out of real
+          opportunity. This platform exists so you can stop guessing and start building.”
+        </p>
+        <p class="ssag-muted">
+          SSAG is not about hype. It’s about handing you systems that work, so you can
+          create income, stability, and options for your life.
+        </p>
+      </div>
+    </div>
+  </section>
 
-      <aside class="card" id="operators">
-        <div class="card-label">Operator Pathway</div>
-        <div class="card-title">What an SSAG operator actually gets</div>
-        <div class="card-body">
-          Operators aren’t buying “an idea” – they’re acquiring a complete decision-stack:
+  <!-- Contact / CTA -->
+  <section id="contact" class="ssag-section">
+    <div class="ssag-container ssag-center">
+      <h2>Ready to Talk About Your SSAG Build?</h2>
+      <p>
+        Use the form below (or your preferred contact method) to ask about a specific kit,
+        the bundle, or having SSAG help build your business for you.
+      </p>
+      <form class="ssag-form">
+        <div class="ssag-form-row">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
         </div>
-        <ul class="feature-list" style="columns:1;">
-          <li>Positioning: how the offer is framed in your market.</li>
-          <li>Pricing: pre-tested structures and packages.</li>
-          <li>Proc
+        <select name="topic">
+          <option value="">What are you interested in?</option>
+          <option value="cohost">Airbnb Co-Host Kit</option>
+          <option value="cleaning">Cleaning Business Kit</option>
+          <option value="notary">Notary & Loan Signing Kit</option>
+          <option value="local-services">Local Services Agency Kit</option>
+          <option value="digital">Digital Product Seller Kit</option>
+          <option value="youtube">YouTube Automation Kit</option>
+          <option value="bundle">SSAG Business Bundle</option>
+          <option value="partner">Partner Program</option>
+          <option value="dfy">Done-For-You Build</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Tell us a bit about where you're starting from..."></textarea>
+        <button type="submit" class="ssag-btn">Send (or use your preferred contact method)</button>
+      </form>
+      <p class="ssag-muted mt-sm">
+        This is a static demo form. You can connect it later to email, Google Forms, or your preferred CRM.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="ssag-footer">
+    <div class="ssag-container ssag-footer-inner">
+      <p>© <span id="year"></span> SSAG Global Enterprises. All rights reserved.</p>
+      <div class="ssag-footer-links">
+        <a href="#home">Home</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#partner">Partner Program</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple year setter
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+  </html>
+    
