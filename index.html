@@ -1133,6 +1133,115 @@
       </div>
     </div>
   </div>
+</section><section id="apply" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Apply to become an SSAG Partner Business</h2>
+      <p class="section-subtitle">
+        This is not a checkout page. It starts a real conversation. Tell the truth about where you’re at and
+        what you want built. If it fits the SSAG model, you’ll be contacted with next steps.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <article class="form-card">
+        <!-- Simple mailto form; you can switch to Formspree or another handler later -->
+        <form action="mailto:cezarmorris2021@gmail.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="Name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="email">Best email</label>
+              <input id="email" name="Email" type="email" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="location">Location (city, state)</label>
+              <input id="location" name="Location" type="text" />
+            </div>
+            <div class="field">
+              <label for="type">What type of system do you want?</label>
+              <select id="type" name="System type">
+                <option value="ecom">Turnkey e-commerce system</option>
+                <option value="service">Turnkey service / lead system</option>
+                <option value="content">Content + backend offer system</option>
+                <option value="hybrid">Hybrid system</option>
+                <option value="not_sure">Not sure – I need guidance</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="situation">Your current situation (be honest)</label>
+            <textarea id="situation" name="Current situation" placeholder="Example: income, time available, responsibilities, debts, obligations, anything that matters..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="timeline">How soon are you ready to start?</label>
+            <textarea id="timeline" name="Timeline" placeholder="Example: immediately, within 30 days, just exploring right now..."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="understand">
+              Do you understand SSAG requires royalties + monthly service fees for any build?
+            </label>
+            <textarea id="understand" name="Royalties understanding" placeholder="Write YES and explain your understanding in your own words."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="why">Why should SSAG build a system for you?</label>
+            <textarea id="why" name="Why you" placeholder="Tell the truth. No hype. Why you, why now, why SSAG?"></textarea>
+          </div>
+
+          <p class="form-note">
+            This form will open your email app and send the details directly to
+            <strong>cezarmorris2021@gmail.com</strong>. If that doesn’t work on your device, copy these
+            questions into an email manually with the subject line “SSAG Partner Application”.
+          </p>
+
+          <button type="submit" class="btn-submit">Send application to SSAG</button>
+        </form>
+      </article>
+
+      <aside class="contact-meta">
+        <div class="contact-pill">📡 How SSAG responds</div>
+        <p>
+          When an application comes in, the goal is clarity first: is there a real fit between your situation
+          and an SSAG system?
+        </p>
+        <ul class="contact-list">
+          <li>• You may receive direction even if the answer is “not yet”.</li>
+          <li>• If it <strong>is</strong> a fit, you’ll see what a realistic build looks like.</li>
+          <li>• No fake promises. Straight talk only.</li>
+        </ul>
+
+        <p>
+          <strong>Direct contact:</strong><br />
+          Email: <strong>cezarmorris2021@gmail.com</strong><br />
+          (Use “SSAG” in the subject line so it’s easy to find.)
+        </p>
+      </aside>
+    </div>
+  </div>
 </section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> SSAG – Stealth Systems Automation Group. All rights reserved.</span>
+    <span>Umbrella enterprise · Turnkey systems · Licensing & royalties.</span>
+  </div>
+</footer>
+
+<script>
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
   
   
