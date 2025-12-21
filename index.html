@@ -496,4 +496,51 @@
   </script>
 </body>
       </html>
-            
+        <footer>
+      <div class="footGrid">
+        <div>
+          <div style="font-weight:900; letter-spacing:.12em; text-transform:uppercase;">
+            <span class="gradtext">SSAG</span> Marketplace
+          </div>
+          <div class="fine" style="margin-top:8px">
+            Elite, structured, handover-ready business systems. Built to operate — not a concept.
+          </div>
+        </div>
+        <div class="fine">
+          <div><b>Navigation:</b> About · Model · TurnKey Builds · Packages · Licenses · FAQ</div>
+          <div style="margin-top:8px; opacity:.9;">© <span id="year"></span> SSAG. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+      </main>
+        <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile drawer
+    const drawer = document.getElementById("drawer");
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("openMenu");
+    const closeBtn = document.getElementById("closeMenu");
+
+    function openMenu(){
+      drawer.classList.add("open");
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeMenu(){
+      drawer.classList.remove("open");
+      overlay.classList.remove("open");
+      document.body.style.overflow = "";
+    
+    openBtn.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+    overlay.addEventListener("click", closeMenu);
+
+    // Close drawer when tapping any drawer link
+    document.querySelectorAll(".drawer a").forEach(a=>{
+      a.addEventListener("click", closeMenu);
+    });
+  </script>
+</body>
+</html>       
