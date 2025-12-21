@@ -1,331 +1,345 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SSAG Marketplace</title>
 
-  <!-- THIS IS STEP #4: it connects your style -->
+  <!-- This line is the “#4” you were asking about -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
+  <!-- Top glow -->
+  <div class="topGlow" aria-hidden="true"></div>
+
+  <header class="siteHeader">
+    <div class="container headerInner">
       <div class="brand">
-        <div class="logo">SSAG</div>
-        <div class="brandtext">
-          <div class="brandname">SSAG Marketplace</div>
-          <div class="brandtag">Turnkey Systems. Real Ownership. Real Execution.</div>
+        <div class="brandMark" aria-hidden="true">SSAG</div>
+        <div class="brandText">
+          <div class="brandName">SSAG Marketplace</div>
+          <div class="brandTag">Turnkey Systems • Real Assets • Owner-Ready</div>
         </div>
       </div>
 
       <nav class="nav">
-        <a href="#how">How it works</a>
-        <a href="#packages">Packages</a>
-        <a href="#marketplace">TurnKey Builds</a>
-        <a href="#license">Licenses</a>
+        <a href="#how" class="navLink">How it works</a>
+        <a href="#packages" class="navLink">Packages</a>
+        <a href="#tiers" class="navLink">License tiers</a>
+        <a href="#catalog" class="navLink">Turnkey catalog</a>
       </nav>
 
-      <div class="top-actions">
-        <a class="btn ghost" href="#marketplace">Browse Builds</a>
-        <a class="btn primary" href="#license">Buy / Request Build</a>
-      </div>
+      <a class="btn btnPrimary" href="#catalog">Browse Builds</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-left">
-        <div class="pill">
-          <span class="dot"></span>
-          Stealth Systems Automation Group
-        </div>
-
-        <h1>Buy a TurnKey Business System — <span class="accent">Not a Concept</span>.</h1>
-        <p class="sub">
-          SSAG delivers real assets: site, workflows, templates, automations, onboarding, and a clear owner guide.
-          You get a complete system you can operate immediately.
-        </p>
-
-        <div class="hero-cta">
-          <a class="btn primary" href="#marketplace">View TurnKey Builds</a>
-          <a class="btn ghost" href="#how">How it works</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-top">Deliverables</div>
-            <div class="stat-big">Assets + Systems</div>
-            <div class="stat-bottom">Not ideas — handover ready.</div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container heroGrid">
+        <div class="heroCopy">
+          <div class="badge">
+            <span class="dot"></span>
+            Systems-first enterprise builds
           </div>
-          <div class="stat">
-            <div class="stat-top">Handover</div>
-            <div class="stat-big">Owner Guide</div>
-            <div class="stat-bottom">Step-by-step runbook.</div>
-          </div>
-          <div class="stat">
-            <div class="stat-top">Support</div>
-            <div class="stat-big">Structured</div>
-            <div class="stat-bottom">Simple, repeatable process.</div>
-          </div>
-        </div>
-      </div>
+          <h1>Turnkey businesses built like software.</h1>
+          <p class="lead">
+            SSAG assembles real business assets—website, offers, workflows, intake, follow-up, documentation—
+            then hands it to the operator with a clean owner guide.
+          </p>
 
-      <div class="hero-right">
-        <div class="panel">
-          <div class="panel-title">What SSAG stands for</div>
-          <ul class="checklist">
-            <li><span class="ic">⚡</span> Speed to launch with real systems</li>
-            <li><span class="ic">🧠</span> Clear workflows anyone can follow</li>
-            <li><span class="ic">🔒</span> Ownership + control (assets + access)</li>
-            <li><span class="ic">📦</span> TurnKey packages built to run</li>
-          </ul>
+          <div class="heroCtas">
+            <a class="btn btnPrimary" href="#catalog">View TurnKey Businesses</a>
+            <a class="btn btnGhost" href="#packages">See Packages & Pricing</a>
+          </div>
 
-          <div class="mini-cta">
-            <a class="btn small ghost" href="#packages">See packages</a>
-            <a class="btn small primary" href="#license">Choose a license</a>
+          <div class="heroStats">
+            <div class="stat">
+              <div class="statTop">Assets Included</div>
+              <div class="statBig">Site • Systems • Docs</div>
+            </div>
+            <div class="stat">
+              <div class="statTop">Handover Ready</div>
+              <div class="statBig">Logins • SOPs • Templates</div>
+            </div>
+            <div class="stat">
+              <div class="statTop">Operator Focus</div>
+              <div class="statBig">Simple steps • Clear actions</div>
+            </div>
           </div>
         </div>
 
-        <div class="panel glow">
-          <div class="panel-title">Fast path</div>
-          <div class="flow">
-            <div class="flow-item"><span class="num">1</span> Pick a build</div>
-            <div class="flow-item"><span class="num">2</span> License or request</div>
-            <div class="flow-item"><span class="num">3</span> Receive assets + runbook</div>
-            <div class="flow-item"><span class="num">4</span> Operate + scale</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="heroPanel">
+          <div class="panelCard">
+            <div class="panelTitle">What SSAG stands for</div>
+            <ul class="checkList">
+              <li><span class="check">✓</span> Real deliverables, not hype</li>
+              <li><span class="check">✓</span> Repeatable systems + proof assets</li>
+              <li><span class="check">✓</span> Operator-friendly instructions</li>
+              <li><span class="check">✓</span> Built to sell / license / scale</li>
+            </ul>
 
-  <!-- HOW IT WORKS -->
-  <section id="how" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>How it works</h2>
-        <p>Simple steps. No confusion. You know exactly what you’re getting.</p>
-      </div>
+            <div class="miniGrid">
+              <div class="mini">
+                <div class="miniIcon" aria-hidden="true">⚡</div>
+                <div class="miniText">
+                  <div class="miniTop">Fast launch</div>
+                  <div class="miniBottom">Clear steps, clean handover</div>
+                </div>
+              </div>
+              <div class="mini">
+                <div class="miniIcon" aria-hidden="true">🧩</div>
+                <div class="miniText">
+                  <div class="miniTop">Systemized</div>
+                  <div class="miniBottom">Workflows + templates</div>
+                </div>
+              </div>
+              <div class="mini">
+                <div class="miniIcon" aria-hidden="true">🛡️</div>
+                <div class="miniText">
+                  <div class="miniTop">Reliable</div>
+                  <div class="miniBottom">Docs + owner guide</div>
+                </div>
+              </div>
+              <div class="mini">
+                <div class="miniIcon" aria-hidden="true">📈</div>
+                <div class="miniText">
+                  <div class="miniTop">Revenue-ready</div>
+                  <div class="miniBottom">Offers + follow-up</div>
+                </div>
+              </div>
+            </div>
 
-      <div class="grid3">
-        <div class="card">
-          <div class="card-icon">🧭</div>
-          <h3>1) Choose</h3>
-          <p>Pick a TurnKey build below, or request a custom build if you want something specific.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🛠️</div>
-          <h3>2) Build + Package</h3>
-          <p>We assemble your business system: website, flows, templates, and automation-ready structure.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔑</div>
-          <h3>3) Handover</h3>
-          <p>You receive the assets, access instructions, and an owner runbook explaining what to do.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PACKAGES -->
-  <section id="packages" class="section alt">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Packages we offer</h2>
-        <p>These are the main system categories SSAG builds and sells.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card">
-          <div class="card-icon">🛒</div>
-          <h3>E-Commerce System</h3>
-          <ul class="bullets">
-            <li>Store structure + product pages</li>
-            <li>Lead capture + follow-up flow</li>
-            <li>Simple operations guide</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">📍</div>
-          <h3>Local Service System</h3>
-          <ul class="bullets">
-            <li>Landing page + trust sections</li>
-            <li>Quote/booking intake structure</li>
-            <li>Job workflow outline</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🎥</div>
-          <h3>Content / Media System</h3>
-          <ul class="bullets">
-            <li>Brand layout + channel structure</li>
-            <li>Content workflow templates</li>
-            <li>Repeatable posting system</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARKETPLACE LIST -->
-  <section id="marketplace" class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>TurnKey businesses available</h2>
-        <p>Pick one to license instantly, or request a custom build based on it.</p>
-      </div>
-
-      <div class="market-grid">
-        <div class="market-item">
-          <div class="mi-top">
-            <div class="mi-title">E-Commerce Micro-Brand</div>
-            <div class="badge">TurnKey</div>
-          </div>
-          <div class="mi-desc">A clean store system with product layout, lead capture, and owner runbook.</div>
-          <div class="mi-actions">
-            <a class="btn small ghost" href="#license">Request Build</a>
-            <a class="btn small primary" href="#license">Buy License</a>
-          </div>
-        </div>
-
-        <div class="market-item">
-          <div class="mi-top">
-            <div class="mi-title">Local Service Lead Engine</div>
-            <div class="badge">TurnKey</div>
-          </div>
-          <div class="mi-desc">Service landing page structure + intake flow + operations guide.</div>
-          <div class="mi-actions">
-            <a class="btn small ghost" href="#license">Request Build</a>
-            <a class="btn small primary" href="#license">Buy License</a>
-          </div>
-        </div>
-
-        <div class="market-item">
-          <div class="mi-top">
-            <div class="mi-title">Faceless Content Channel System</div>
-            <div class="badge">TurnKey</div>
-          </div>
-          <div class="mi-desc">Brand kit + workflow templates + repeatable publishing plan.</div>
-          <div class="mi-actions">
-            <a class="btn small ghost" href="#license">Request Build</a>
-            <a class="btn small primary" href="#license">Buy License</a>
-          </div>
-        </div>
-
-        <div class="market-item">
-          <div class="mi-top">
-            <div class="mi-title">Digital Product Kit Business</div>
-            <div class="badge">TurnKey</div>
-          </div>
-          <div class="mi-desc">Template/kit storefront format + delivery structure + upsell-ready layout.</div>
-          <div class="mi-actions">
-            <a class="btn small ghost" href="#license">Request Build</a>
-            <a class="btn small primary" href="#license">Buy License</a>
-          </div>
-        </div>
-
-        <div class="market-item">
-          <div class="mi-top">
-            <div class="mi-title">Custom SSAG Build</div>
-            <div class="badge soft">Request</div>
-          </div>
-          <div class="mi-desc">You tell us what you want to own — we build the system and hand it over clean.</div>
-          <div class="mi-actions">
-            <a class="btn small primary" href="#license">Request Build</a>
+            <a class="btn btnSecondary full" href="#tiers">Pick a License Tier</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LICENSE TIERS / PRICING -->
-  <section id="license" class="section alt">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>License tiers</h2>
-        <p>Pick the level that matches what you want: basic handover, full operator package, or enterprise.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="price-card">
-          <div class="price-top">
-            <div class="price-name">Starter License</div>
-            <div class="price-tag">Best for trying</div>
-          </div>
-          <div class="price-num">$</div>
-          <ul class="bullets">
-            <li>Base assets (site structure)</li>
-            <li>Core pages + layout</li>
-            <li>Basic owner notes</li>
-          </ul>
-          <a class="btn primary full" href="#">Buy Starter</a>
-          <a class="btn ghost full" href="#">Request Build</a>
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>How it works</h2>
+          <p>Simple: choose a build → SSAG assembles → you operate with confidence.</p>
         </div>
 
-        <div class="price-card featured">
-          <div class="price-top">
-            <div class="price-name">Operator License</div>
-            <div class="price-tag">Most chosen</div>
+        <div class="steps">
+          <div class="stepCard">
+            <div class="stepNum">1</div>
+            <h3>Choose a TurnKey model</h3>
+            <p>Pick from the catalog below, or request a custom build.</p>
           </div>
-          <div class="price-num">$$</div>
-          <ul class="bullets">
-            <li>Full system build (assets + structure)</li>
-            <li>Workflows + templates</li>
-            <li>Owner runbook (step-by-step)</li>
-          </ul>
-          <a class="btn primary full" href="#">Buy Operator</a>
-          <a class="btn ghost full" href="#">Request Build</a>
-        </div>
-
-        <div class="price-card">
-          <div class="price-top">
-            <div class="price-name">Enterprise License</div>
-            <div class="price-tag">Full scale</div>
+          <div class="stepCard">
+            <div class="stepNum">2</div>
+            <h3>We build the assets + system</h3>
+            <p>Website, offer page, intake, follow-up, scripts, templates, owner guide.</p>
           </div>
-          <div class="price-num">$$$</div>
-          <ul class="bullets">
-            <li>Multi-module build</li>
-            <li>Expansion-ready structure</li>
-            <li>Implementation checklist</li>
-          </ul>
-          <a class="btn primary full" href="#">Buy Enterprise</a>
-          <a class="btn ghost full" href="#">Request Build</a>
-        </div>
-      </div>
-
-      <div class="bottom-cta">
-        <div class="cta-box">
-          <div class="cta-title">Want the fastest route?</div>
-          <div class="cta-sub">Choose a TurnKey build + Operator License. That’s the cleanest “ready-to-run” setup.</div>
-          <div class="cta-actions">
-            <a class="btn primary" href="#marketplace">Browse Builds</a>
-            <a class="btn ghost" href="#">Request Build</a>
+          <div class="stepCard">
+            <div class="stepNum">3</div>
+            <h3>Handover + run</h3>
+            <p>You receive logins, files, and the exact steps to operate day-to-day.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-title">SSAG Marketplace</div>
-        <div class="footer-sub">Systems you can operate. Assets you can own.</div>
-      </div>
+    <!-- PACKAGES -->
+    <section id="packages" class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>Packages</h2>
+          <p>Pick a starting package. Upgrade anytime.</p>
+        </div>
 
-      <div class="footer-links">
-        <a href="#how">How it works</a>
-        <a href="#packages">Packages</a>
-        <a href="#marketplace">TurnKey builds</a>
-        <a href="#license">Licenses</a>
+        <div class="packageGrid">
+          <div class="packageCard">
+            <div class="icon">🛰️</div>
+            <h3>Starter Stack</h3>
+            <p class="muted">Best for launching fast with a clean foundation.</p>
+            <ul class="bullets">
+              <li>Landing page + offer</li>
+              <li>Lead capture + follow-up</li>
+              <li>Basic owner guide</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btnGhost" href="#catalog">View catalog</a>
+              <a class="btn btnPrimary" href="#request">Request Build</a>
+            </div>
+          </div>
+
+          <div class="packageCard highlight">
+            <div class="icon">🧠</div>
+            <h3>Operator System</h3>
+            <p class="muted">Best all-around: real workflows + documentation.</p>
+            <ul class="bullets">
+              <li>Website + pages</li>
+              <li>Intake / booking workflow</li>
+              <li>Templates + scripts</li>
+              <li>Owner SOP playbook</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btnGhost" href="#tiers">See license tiers</a>
+              <a class="btn btnPrimary" href="#request">Request Build</a>
+            </div>
+          </div>
+
+          <div class="packageCard">
+            <div class="icon">🏗️</div>
+            <h3>Full TurnKey Build</h3>
+            <p class="muted">Best for a complete “handover-ready” business.</p>
+            <ul class="bullets">
+              <li>Brand kit + full site</li>
+              <li>Automation-ready follow-up</li>
+              <li>Sales page + FAQ</li>
+              <li>Owner runbook + checklist</li>
+            </ul>
+            <div class="actions">
+              <a class="btn btnGhost" href="#catalog">Pick a business</a>
+              <a class="btn btnPrimary" href="#request">Request Build</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-</body>
-                                       </html>
-                                       
+    </section>
+
+    <!-- LICENSE TIERS -->
+    <section id="tiers" class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>License tiers</h2>
+          <p>Choose your ownership level. (You can change tiers later.)</p>
+        </div>
+
+        <div class="tierGrid">
+          <div class="tierCard">
+            <div class="tierTop">
+              <div class="tierName">Operator License</div>
+              <div class="tierPrice">$2,500–$5,000</div>
+            </div>
+            <p class="muted">Run 1 build as your business.</p>
+            <ul class="bullets">
+              <li>Single-business use</li>
+              <li>Owner guide + SOP</li>
+              <li>Templates included</li>
+            </ul>
+            <a class="btn btnPrimary full" href="#request">Buy / Start</a>
+          </div>
+
+          <div class="tierCard highlight">
+            <div class="tierTop">
+              <div class="tierName">Founding Operator</div>
+              <div class="tierPrice">$5,000–$15,000</div>
+            </div>
+            <p class="muted">Priority build + upgrades + strong handover.</p>
+            <ul class="bullets">
+              <li>Priority build queue</li>
+              <li>Upgrade-ready system map</li>
+              <li>Support window included</li>
+            </ul>
+            <a class="btn btnPrimary full" href="#request">Buy / Start</a>
+          </div>
+
+          <div class="tierCard">
+            <div class="tierTop">
+              <div class="tierName">Builder / Reseller</div>
+              <div class="tierPrice">Custom</div>
+            </div>
+            <p class="muted">License to deploy multiple builds.</p>
+            <ul class="bullets">
+              <li>Multi-build rights</li>
+              <li>Reusable templates</li>
+              <li>Resell / deploy model</li>
+            </ul>
+            <a class="btn btnPrimary full" href="#request">Request Terms</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TURNKEY CATALOG -->
+    <section id="catalog" class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <h2>TurnKey businesses we offer</h2>
+          <p>Pick one and click “Buy” or “Request Build”. Add more anytime.</p>
+        </div>
+
+        <div class="catalogGrid">
+          <article class="bizCard">
+            <div class="bizHead">
+              <div class="bizIcon">🛒</div>
+              <div>
+                <h3>E-Commerce Micro-Brand</h3>
+                <p class="muted">Store + product structure + follow-up</p>
+              </div>
+            </div>
+            <div class="bizMeta">
+              <span class="pill">Storefront</span>
+              <span class="pill">Email capture</span>
+              <span class="pill">Owner guide</span>
+            </div>
+            <div class="bizActions">
+              <a class="btn btnGhost" href="#tiers">Pick License</a>
+              <a class="btn btnPrimary" href="#request">Buy / Request</a>
+            </div>
+          </article>
+
+          <article class="bizCard">
+            <div class="bizHead">
+              <div class="bizIcon">📍</div>
+              <div>
+                <h3>Local Service System</h3>
+                <p class="muted">Booking + intake + job workflow</p>
+              </div>
+            </div>
+            <div class="bizMeta">
+              <span class="pill">Booking</span>
+              <span class="pill">Lead follow-up</span>
+              <span class="pill">SOPs</span>
+            </div>
+            <div class="bizActions">
+              <a class="btn btnGhost" href="#tiers">Pick License</a>
+              <a class="btn btnPrimary" href="#request">Buy / Request</a>
+            </div>
+          </article>
+
+          <article class="bizCard">
+            <div class="bizHead">
+              <div class="bizIcon">🎥</div>
+              <div>
+                <h3>Faceless Content Channel</h3>
+                <p class="muted">Brand + scripts + upload workflow</p>
+              </div>
+            </div>
+            <div class="bizMeta">
+              <span class="pill">Brand kit</span>
+              <span class="pill">Scripts</span>
+              <span class="pill">Workflow</span>
+            </div>
+            <div class="bizActions">
+              <a class="btn btnGhost" href="#tiers">Pick License</a>
+              <a class="btn btnPrimary" href="#request">Buy / Request</a>
+            </div>
+          </article>
+
+          <article class="bizCard">
+            <div class="bizHead">
+              <div class="bizIcon">🏢</div>
+              <div>
+                <h3>DMV / Paperwork Service</h3>
+                <p class="muted">Lead intake + process steps + templates</p>
+              </div>
+            </div>
+            <div class="bizMeta">
+              <span class="pill">Intake</span>
+              <span class="pill">Templates</span>
+              <span class="pill">Owner guide</span>
+            </div>
+            <div class="bizActions">
+              <a class="btn btnGhost" href="#tiers">Pick License</a>
+              <a class="btn btnPrimary" href="#request">Buy / Request</a>
+            </div>
+
+  
